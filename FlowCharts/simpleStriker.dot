@@ -1,0 +1,33 @@
+digraph G {
+
+center=true;
+concentrate=false;
+splines=true;
+
+node [shape=box, color=blue, fontcolor=blue, fontname=Helvetica, fontsize=11, height=0.2];
+edge [color=blue, arrowhead=open, style=dashed];//dotted
+
+localize [peripheries=3];
+
+localize -> walkToBall;
+walkToBall -> searchForBall;
+walkToBall -> decideKick;
+alignWithGoal -> searchForBall;
+alignWithGoal -> kickToGoal;
+alignWithGoal -> walkToBall;
+alignLeftDribble -> searchForBall;
+alignLeftDribble -> dribbleLeft;
+alignLeftDribble -> walkToBall;
+alignRightDribble -> searchForBall;
+alignRightDribble -> dribbleRight;
+alignRightDribble -> walkToBall;
+decideKick -> alignWithGoal;
+decideKick -> alignLeftDribble;
+decideKick -> alignRightDribble;
+decideKick -> searchForBall;
+kickToGoal -> walkToBall;
+dribbleLeft -> walkToBall;
+dribbleRight -> walkToBall;
+searchForBall -> walkToBall;
+
+}

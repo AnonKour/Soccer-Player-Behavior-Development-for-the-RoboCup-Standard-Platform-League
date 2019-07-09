@@ -1,0 +1,18 @@
+Worked with Bhuman 2017 via simulator {Issues with SSSE3 since Phenom II doesnt support the https://stackoverflow.com/questions/52858556/most-recent-processor-without-support-of-ssse3-instructions/52860975#52860975}
+	- figure out along with Alexiou and Bacharis how to change behaviors.
+	- Found a way to use headcontrol.
+	- Found a way to use field features.
+Nao 2014 format
+Bhuman setup for Nao 2014 {Issues with the format itself as well as with networking, wireless}
+Worked with Bhuman 2018 via simulator 
+	- Figure out how to work with the states.
+	- Figure out how to change and work with locations.
+	- Figure out how to change and work with scenes.
+	- Figure out how calculate the angle with a vector and a point.
+	- Figure out how to add different in walk kicks.
+	- Figure out how to use ball velocity.
+	- Figure out how to use obstacles.
+	- Figure out how to use the kick engine.
+	
+	
+	

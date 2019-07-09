@@ -1,0 +1,13 @@
+digraph G {
+
+node [style=filled,fontname=Arial,fontsize=9,height=0.2];
+concentrate = true;
+
+MotionRequest -> KickEngine;
+MotionRequest -> WalkEngine;
+KickEngine -> KickRequest;
+KickEngine -> KickEngineParameters;
+KickRequest -> Joints;
+
+
+}

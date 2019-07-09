@@ -1,0 +1,46 @@
+digraph G {
+
+center=true;
+concentrate=false;
+splines=true;
+
+node [shape=box, color=blue, fontcolor=blue, fontname=Helvetica, fontsize=11, height=0.2];
+edge [color=blue, arrowhead=open, style=dashed];//dotted
+
+
+localize [peripheries=3];
+
+localize -> turnToGoal;
+turnToGoal -> walkToGoal;
+walkToGoal -> alingInfrontOfGoal;
+alingInfrontOfGoal -> scanField;
+alingInfrontOfGoal -> trackTheBall;
+alingInfrontOfGoal -> turnToCenter;
+#scanField -> searchForBall;
+scanField -> trackTheBall;
+#trackTheBall -> searchForBall;
+trackTheBall -> alingInfrontOfGoal;
+trackTheBall -> activeTracking;
+trackTheBall -> alignForKick;
+trackTheBall -> blockTheOpenCorner;
+turnToCenter -> alingInfrontOfGoal;
+#alignForKick -> searchForBall;
+alignForKick -> activeTracking;
+alignForKick -> kickAwayFromGoal;
+#blockTheOpenCorner -> searchForBall;
+blockTheOpenCorner -> alignForKick;
+blockTheOpenCorner -> trackTheBallWhileBlockingTheCorner;
+blockTheOpenCorner -> activeTracking;
+#trackTheBallWhileBlockingTheCorner -> searchForBall;
+trackTheBallWhileBlockingTheCorner -> alignForKick;
+trackTheBallWhileBlockingTheCorner -> activeTracking;
+kickAwayFromGoal -> alingInfrontOfGoal;
+#activeTracking -> searchForBall;
+activeTracking -> alingInfrontOfGoal;
+activeTracking -> trackTheBall;
+activeTracking -> blockTheOpenCorner;
+searchForBall -> activeTracking;
+searchForBall -> searchForBallWithMovement;
+searchForBallWithMovement -> activeTracking;
+
+}

@@ -1,0 +1,4 @@
+
+Variables -T{format of the output} {Name of the dot file} -o {Name of output file}
+
+dot -Tjpeg example.dot -o example.jpeg

@@ -1,0 +1,40 @@
+digraph G {
+
+center=true;
+concentrate=false;
+splines=true;
+
+node [shape=box, color=blue,fontcolor=blue, fontname=Helvetica, fontsize=11, height=0.2];
+edge [color=blue, arrowhead=open, style=dashed];//dotted
+
+localize [peripheries=3];
+
+localize -> searchForBall;
+searchForBall -> decideNextMove;
+#decideNextMove -> searchForBall;
+decideNextMove -> moveToBallWhileBlocking;
+decideNextMove -> walkToObservingPosition;
+#moveToBallWhileBlocking -> searchForBall;
+moveToBallWhileBlocking -> walkToObservingPosition;
+moveToBallWhileBlocking -> alignForKick;
+#walkToObservingPosition -> searchForBall;
+walkToObservingPosition -> standingAndObserving;
+walkToObservingPosition -> moveToBallWhileBlocking;
+#alignForKick -> searchForBall;
+alignForKick -> walkToObservingPosition;
+alignForKick -> kickAwayFromGoal;
+alignForKick -> moveToBallWhileBlocking;
+#standingAndObserving -> searchForBall;	
+standingAndObserving -> moveToBallWhileBlocking;
+standingAndObserving -> patrolLeft;
+standingAndObserving -> patrolRight;
+kickAwayFromGoal -> decideNextMove;
+#patrolLeft -> searchForBall;
+patrolLeft -> moveToBallWhileBlocking;
+patrolLeft -> walkToObservingPosition;
+#patrolRight -> searchForBall;
+patrolRight -> moveToBallWhileBlocking;
+patrolRight -> walkToObservingPosition;
+
+
+}

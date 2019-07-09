@@ -1,0 +1,20 @@
+digraph G {
+
+center=true;
+concentrate=true;
+splines=true;
+
+node [shape=box, color=blue, fontcolor=blue, fontname=Helvetica, fontsize=11, height=0.2];
+edge [color=blue, arrowhead=open, style=dashed];//dotted
+
+initial [peripheries=3];
+
+initial -> ready;
+ready -> set;
+set -> playing;
+playing -> finished;
+
+notPenalize -> penalized;
+penalized -> notPenalize;
+
+}

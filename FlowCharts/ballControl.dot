@@ -1,0 +1,48 @@
+digraph G {
+
+center=true;
+concentrate=false;
+splines=true;
+
+node [shape=box, color=blue, fontcolor=blue, fontname=Helvetica, fontsize=11, height=0.2];
+edge [color=blue, arrowhead=open, style=dashed];//dotted
+
+//point1 [shape=point,width=0.01,height=0.01];
+//point2 [shape=point,width=0.01,height=0.01];
+
+searchForBall
+
+localize [peripheries=3];
+
+localize -> walkToBallDirectly;
+searchForBall -> walkToBallDirectly;
+walkToBallDirectly -> walkToObservingPosition;
+walkToBallDirectly -> alignWithTarget;
+walkToBallDirectly -> walkToBallWithAnArc;
+walkToObservingPosition -> standingAndObserving;
+walkToObservingPosition -> walkToBallDirectly;
+alignWithTarget -> kick;
+alignWithTarget -> walkToBallDirectly;
+walkToBallWithAnArc -> walkToObservingPosition;
+walkToBallWithAnArc -> alignWithTarget;
+walkToBallWithAnArc -> walkToBallDirectly;
+kick -> walkToBallDirectly;
+standingAndObserving -> patrolLeft;
+standingAndObserving -> patrolRight;
+standingAndObserving -> walkToBallDirectly;
+
+patrolLeft -> walkToBallDirectly;
+patrolLeft -> standingAndObserving;
+
+patrolRight -> walkToBallDirectly;
+patrolRight -> standingAndObserving;
+
+//{patrolLeft,standingAndObserving} -> point1[dir=none];
+//point1 -> walkToBallDirectly;
+
+//{patrolRight,kick} -> point2[dir=none];
+//point2 -> walkToBallDirectly;
+//{rank = source; localize;searchForBall;}
+//{rank = same; point1; walkToObservingPosition;}
+//{rank = same; point2; alignWithTarget;}
+}	
